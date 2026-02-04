@@ -17,19 +17,19 @@ spec:
     spec:
       containers:
       - name: client
-        image: contenedoreskube.azurecr.io/microclient:latest
+        image: containerkube1.azurecr.io/microclient 
         ports:
         - containerPort: 8000
         env: 
         - name: AUDIT_API
           value: http://nlb-service:8080
       - name: service
-        image: contenedoreskube.azurecr.io/microservice:latest
+        image: containerkube1.azurecr.io/microservice
         ports:
         - containerPort: 8080
         env:
         - name: url
-          value: jdbc:mysql://mysql-testjg.mysql.database.azure.com:3306/pokeaudit?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+          value: jdbc:mysql://serverprueba.mysql.database.azure.com:3306/pokeaudit?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
         - name: user
           valueFrom:
             secretKeyRef:
